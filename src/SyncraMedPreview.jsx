@@ -96,7 +96,7 @@ export default function SyncraMedPreview() {
   ];
 
   return (
-    <div style={{ fontFamily:"'DM Sans',sans-serif", background:"linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)", minHeight:"100vh", display:"flex", alignItems:"center", justifyContent:"center", padding:24 }}>
+    <div style={{ fontFamily:"'DM Sans',sans-serif", background:"linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)", minHeight:"80vh", display:"flex", alignItems:"center", justifyContent:"center", padding:24 }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
         *{box-sizing:border-box;margin:0;padding:0}
