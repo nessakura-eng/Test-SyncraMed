@@ -113,7 +113,7 @@ export default function SyncraMedPreview() {
         input{outline:none;font-family:inherit}
       `}</style>
 
-      <div style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:20, maxHeight: "80vh"}}>
+      <div style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:20 }}>
         {/* Brand */}
         <div style={{ textAlign:"center" }}>
           <div style={{ display:"flex",alignItems:"center",justifyContent:"center",gap:10,marginBottom:4 }}>
