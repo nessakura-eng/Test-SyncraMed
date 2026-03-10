@@ -113,7 +113,7 @@ export default function SyncraMedPreview() {
         input{outline:none;font-family:inherit}
       `}</style>
 
-      <div style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:20 }}>
+      <div style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:12, maxHeight:"100vh", overflow:"hidden" }}>
         {/* Brand */}
         <div style={{ textAlign:"center" }}>
           <div style={{ display:"flex",alignItems:"center",justifyContent:"center",gap:10,marginBottom:4 }}>
@@ -126,7 +126,7 @@ export default function SyncraMedPreview() {
         </div>
 
         {/* Phone frame */}
-        <div style={{ position:"relative",width:375,background:"#141414",borderRadius:50,padding:12,boxShadow:"0 40px 80px rgba(0,0,0,0.65),0 0 0 1px rgba(255,255,255,0.08)" }}>
+        <div style={{ position:"relative", width:375, background:"#141414", borderRadius:50, padding:12, boxShadow:"0 40px 80px rgba(0,0,0,0.65),0 0 0 1px rgba(255,255,255,0.08)", maxHeight:"calc(100vh - 100px)", display:"flex", flexDirection:"column" }}>
           {/* Notch */}
           <div style={{ position:"absolute",top:12,left:"50%",transform:"translateX(-50%)",width:110,height:28,background:"#141414",borderRadius:"0 0 14px 14px",zIndex:10,display:"flex",alignItems:"center",justifyContent:"center",gap:6 }}>
             <div style={{ width:7,height:7,background:"#2a2a2a",borderRadius:"50%" }}/>
@@ -134,7 +134,7 @@ export default function SyncraMedPreview() {
           </div>
 
           {/* Screen */}
-          <div style={{ background:colors.offWhite,borderRadius:40,overflow:"hidden",height:760,display:"flex",flexDirection:"column",position:"relative" }}>
+          <div style={{ background:colors.offWhite, borderRadius:40, overflow:"hidden", flex:1, display:"flex", flexDirection:"column", position:"relative" }}>
             {/* Status bar */}
             <div style={{ background:colors.white,padding:"14px 20px 8px",display:"flex",justifyContent:"space-between",alignItems:"center",flexShrink:0 }}>
               <span style={{ fontSize:12,fontWeight:700 }}>9:41</span>
