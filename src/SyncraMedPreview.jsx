@@ -126,61 +126,63 @@ export default function SyncraMedPreview() {
         </div>
 
         {/* Phone frame */}
-        <div style={{ position:"relative",width:375,background:"#141414",borderRadius:50,padding:12,boxShadow:"0 40px 80px rgba(0,0,0,0.65),0 0 0 1px rgba(255,255,255,0.08)" }}>
-          {/* Notch */}
-          <div style={{ position:"absolute",top:12,left:"50%",transform:"translateX(-50%)",width:110,height:28,background:"#141414",borderRadius:"0 0 14px 14px",zIndex:10,display:"flex",alignItems:"center",justifyContent:"center",gap:6 }}>
-            <div style={{ width:7,height:7,background:"#2a2a2a",borderRadius:"50%" }}/>
-            <div style={{ width:44,height:7,background:"#2a2a2a",borderRadius:4 }}/>
-          </div>
-
-          {/* Screen */}
-          <div style={{ background:colors.offWhite,borderRadius:40,overflow:"hidden",height:760,display:"flex",flexDirection:"column",position:"relative" }}>
-            {/* Status bar */}
-            <div style={{ background:colors.white,padding:"14px 20px 8px",display:"flex",justifyContent:"space-between",alignItems:"center",flexShrink:0 }}>
-              <span style={{ fontSize:12,fontWeight:700 }}>9:41</span>
-              <div style={{ display:"flex",alignItems:"center",gap:5 }}>
-                {[4,6,8,10].map((h,i)=><div key={i} style={{ width:3,height:h,background:colors.black,borderRadius:1 }}/>)}
-                <span style={{ fontSize:11,fontWeight:600,marginLeft:4 }}>100%</span>
-              </div>
+        <div style={{ transform: "scale(0.85)", transformOrigin: "top center" }}>
+          <div style={{ position:"relative", width:375, background:"#141414", borderRadius:50, padding:12, boxShadow:"0 40px 80px rgba(0,0,0,0.65),0 0 0 1px rgba(255,255,255,0.08)" }}>
+            {/* Notch and Screen content */}
+  
+            <div style={{ position:"absolute",top:12,left:"50%",transform:"translateX(-50%)",width:110,height:28,background:"#141414",borderRadius:"0 0 14px 14px",zIndex:10,display:"flex",alignItems:"center",justifyContent:"center",gap:6 }}>
+              <div style={{ width:7,height:7,background:"#2a2a2a",borderRadius:"50%" }}/>
+              <div style={{ width:44,height:7,background:"#2a2a2a",borderRadius:4 }}/>
             </div>
-
-            {/* App header */}
-            <div style={{ background:colors.white,padding:"8px 18px 12px",borderBottom:`1px solid ${colors.border}`,display:"flex",alignItems:"center",justifyContent:"space-between",flexShrink:0 }}>
-              <div style={{ display:"flex",alignItems:"center",gap:8 }}>
-                <div style={{ width:26,height:26,background:colors.black,borderRadius:7,display:"flex",alignItems:"center",justifyContent:"center" }}>
-                  <Icon name="medkit" size={13} color="white" sw={2.2}/>
+  
+            {/* Screen */}
+            <div style={{ background:colors.offWhite,borderRadius:40,overflow:"hidden",height:760,display:"flex",flexDirection:"column",position:"relative" }}>
+              {/* Status bar */}
+              <div style={{ background:colors.white,padding:"14px 20px 8px",display:"flex",justifyContent:"space-between",alignItems:"center",flexShrink:0 }}>
+                <span style={{ fontSize:12,fontWeight:700 }}>9:41</span>
+                <div style={{ display:"flex",alignItems:"center",gap:5 }}>
+                  {[4,6,8,10].map((h,i)=><div key={i} style={{ width:3,height:h,background:colors.black,borderRadius:1 }}/>)}
+                  <span style={{ fontSize:11,fontWeight:600,marginLeft:4 }}>100%</span>
                 </div>
-                <span style={{ fontFamily:"'DM Serif Display',serif",fontSize:17,fontWeight:400 }}>SyncraMed</span>
               </div>
-              <div style={{ width:30,height:30,background:colors.black,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",color:"white",fontSize:13,fontWeight:700 }}>P</div>
-            </div>
-
-            {/* Screen content */}
-            <div style={{ flex:1,overflowY:"auto" }} className="fade" key={activeTab}>
-              {activeTab==="dashboard"    && <DashboardView takenToday={takenToday} setTakenToday={setTakenToday} adherence={adherence}/>}
-              {activeTab==="medications"  && <MedicationsView showAI={showAI} setShowAI={setShowAI} takenToday={takenToday} setTakenToday={setTakenToday}/>}
-              {activeTab==="calendar"     && <CalendarView logs={LOGS} selected={calSelected} setSelected={setCalSelected}/>}
-              {activeTab==="reminders"    && <RemindersView/>}
-              {activeTab==="pharmacy"     && <PharmacyView/>}
-              {activeTab==="ai"           && <AIChatView chatInput={chatInput} setChatInput={setChatInput}/>}
-            </div>
-
-            {/* Tab bar */}
-            <div style={{ background:colors.white,borderTop:`1px solid ${colors.border}`,padding:"8px 0 20px",display:"flex",justifyContent:"space-around",flexShrink:0 }}>
-              {tabs.map(t=>{
-                const on=activeTab===t.id;
-                return (
-                  <div key={t.id} className="tabbtn" onClick={()=>setActiveTab(t.id)}
-                    style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:3,padding:"6px 10px",background:on?"#f0f0f0":"transparent" }}>
-                    <Icon name={t.icon} size={21} color={on?colors.black:colors.light} sw={on?2.2:1.8}/>
-                    <span style={{ fontSize:9,fontWeight:600,color:on?colors.black:colors.light,letterSpacing:0.3 }}>{t.label}</span>
+  
+              {/* App header */}
+              <div style={{ background:colors.white,padding:"8px 18px 12px",borderBottom:`1px solid ${colors.border}`,display:"flex",alignItems:"center",justifyContent:"space-between",flexShrink:0 }}>
+                <div style={{ display:"flex",alignItems:"center",gap:8 }}>
+                  <div style={{ width:26,height:26,background:colors.black,borderRadius:7,display:"flex",alignItems:"center",justifyContent:"center" }}>
+                    <Icon name="medkit" size={13} color="white" sw={2.2}/>
                   </div>
-                );
-              })}
+                  <span style={{ fontFamily:"'DM Serif Display',serif",fontSize:17,fontWeight:400 }}>SyncraMed</span>
+                </div>
+                <div style={{ width:30,height:30,background:colors.black,borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",color:"white",fontSize:13,fontWeight:700 }}>P</div>
+              </div>
+  
+              {/* Screen content */}
+              <div style={{ flex:1,overflowY:"auto" }} className="fade" key={activeTab}>
+                {activeTab==="dashboard"    && <DashboardView takenToday={takenToday} setTakenToday={setTakenToday} adherence={adherence}/>}
+                {activeTab==="medications"  && <MedicationsView showAI={showAI} setShowAI={setShowAI} takenToday={takenToday} setTakenToday={setTakenToday}/>}
+                {activeTab==="calendar"     && <CalendarView logs={LOGS} selected={calSelected} setSelected={setCalSelected}/>}
+                {activeTab==="reminders"    && <RemindersView/>}
+                {activeTab==="pharmacy"     && <PharmacyView/>}
+                {activeTab==="ai"           && <AIChatView chatInput={chatInput} setChatInput={setChatInput}/>}
+              </div>
+  
+              {/* Tab bar */}
+              <div style={{ background:colors.white,borderTop:`1px solid ${colors.border}`,padding:"8px 0 20px",display:"flex",justifyContent:"space-around",flexShrink:0 }}>
+                {tabs.map(t=>{
+                  const on=activeTab===t.id;
+                  return (
+                    <div key={t.id} className="tabbtn" onClick={()=>setActiveTab(t.id)}
+                      style={{ display:"flex",flexDirection:"column",alignItems:"center",gap:3,padding:"6px 10px",background:on?"#f0f0f0":"transparent" }}>
+                      <Icon name={t.icon} size={21} color={on?colors.black:colors.light} sw={on?2.2:1.8}/>
+                      <span style={{ fontSize:9,fontWeight:600,color:on?colors.black:colors.light,letterSpacing:0.3 }}>{t.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
-
+        
         {/* Nav pills */}
         <div style={{ display:"flex",gap:6,flexWrap:"wrap",justifyContent:"center" }}>
           {tabs.map(t=>(
