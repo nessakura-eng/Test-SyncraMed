@@ -1,9 +1,10 @@
 {
-  "name": "my-app",
+  "name": "jsx-preview",
   "version": "1.0.0",
   "scripts": {
-    "start": "vite",
-    "build": "vite build"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
