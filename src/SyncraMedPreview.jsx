@@ -216,6 +216,10 @@ function DashboardView({ takenToday, setTakenToday, adherence }) {
         ))}
       </div>
 
+    </div>
+  );
+}
+
       <div style={{ background:colors.white,borderRadius:16,padding:16,border:`1px solid ${colors.border}`,marginBottom:12 }}>
         <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10 }}>
           <span style={{ fontWeight:700,fontSize:14 }}>Today's Medications</span>
